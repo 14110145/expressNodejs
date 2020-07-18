@@ -1,0 +1,6 @@
+h1 This is a list users.
+form( action="/users/search", method="GET")
+            input(type="text", name="q", value=queryInput)
+            button Search
+each user in users
+        li= user.name
