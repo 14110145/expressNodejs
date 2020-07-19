@@ -1,8 +1,8 @@
-html
-  head
-    title= title
-  body
-    h1= message
-      span &nbsp
-      span #{name}
-    a(href="/users") Users
+extends ./layouts/common.pug
+
+block content
+
+  h1= message
+    span &nbsp
+    span #{name}
+  a(href="/users" class="btn btn-outline-info") Users

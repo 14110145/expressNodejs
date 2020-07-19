@@ -1,5 +1,12 @@
-h1 Create a user
-form(action="/users/create", method="POST")
-    label(for="") Name
-    input(type="text", name="name")
-    button Create
+extends ../layouts/common.pug
+
+block content
+
+  h1 Create a user
+  form(action="/users/create", method="POST")
+    .form-group.mt-4
+      .input-group
+        .input-group-prepend
+          span(class="input-group-text") Name
+        input(type="text", class="form-control", name="name")
+        button(class="btn btn-outline-secondary") Create

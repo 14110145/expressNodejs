@@ -3,13 +3,18 @@ extends ../layouts/common.pug
 block content
 
   h1 This is a list users.
-  a(href="/users/create") New
-  form( action="/users/search", method="GET")
-    input(type="text", name="q", value=queryInput)
-    button Search
+  .mt-4
+    a(href="/users/create" class="btn btn-info mb-4") New user
+    form( action="/users/search", method="GET")
+      .form-group
+        .input-group
+          .input-group-prepend
+            span(class="input-group-text") Name
+          input(type="text", class="form-control", name="q", value=queryInput)
+          button(class="btn btn-outline-secondary") Search
+  ul
     each user in users
-      ul
-        li
-          span= user.name 
-          span &nbsp
-          a(href="/users/" + user.id) Users
+      li(class="mb-2")
+        span= user.name 
+        span &nbsp
+        a(href="/users/" + user.id, class="btn btn-outline-success btn-sm") Infor

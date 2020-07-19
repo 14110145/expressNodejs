@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) =>
   res.render("index.pug", {
-    title: "hey",
     message: "Hello there!",
     name: "LTP",
   })
