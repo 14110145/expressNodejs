@@ -1,6 +1,11 @@
 h1 This is a list users.
+a(href="/users/create") New
 form( action="/users/search", method="GET")
-            input(type="text", name="q", value=queryInput)
-            button Search
-each user in users
-        li= user.name
+  input(type="text", name="q", value=queryInput)
+  button Search
+  each user in users
+    ul
+      li
+        span= user.name 
+        span &nbsp
+        a(href="/users/" + user.id) Users

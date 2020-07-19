@@ -1,15 +1,16 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+
 const app = express();
 const port = 3000;
+
+let userRoute = require("./routes/user.route.js");
 
 app.set("views", "./views");
 app.set("view engine", "pug");
 
-let users = [
-  { id: "1", name: "Lam" },
-  { id: "2", name: "Toan" },
-  { id: "3", name: "Phu" },
-];
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) =>
   res.render("index.pug", {
@@ -19,17 +20,7 @@ app.get("/", (req, res) =>
   })
 );
 
-app.get("/users", (req, res) => {
-  res.render("users/index.pug", { users: users });
-});
-
-app.get("/users/search", (req, res) => {
-  let q = req.query.q;
-  let matchedUser = users.filter(function (user, index) {
-    return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-  });
-  res.render("users/index.pug", { queryInput: q, users: matchedUser });
-});
+app.use("/users", userRoute);
 
 app.listen(port, () =>
   console.log(`Example listening at http://localhost:${port}`)
