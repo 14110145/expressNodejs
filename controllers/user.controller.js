@@ -28,24 +28,6 @@ module.exports.create = (req, res) => {
 
 module.exports.postCreate = (req, res) => {
   req.body.id = shortid.generate();
-  let errors = [];
-  if (!req.body.name) {
-    errors.push("Name is required!");
-  }
-
-  if (!req.body.phone) {
-    errors.push("Phone is required!");
-  }
-
-  if (errors.length) {
-    res.render("users/create.pug", {
-      errors: errors,
-      values: req.body,
-    });
-    console.log(req.body);
-    return;
-  }
-
   db.get("users").push(req.body).write();
   res.redirect("/users");
 };
