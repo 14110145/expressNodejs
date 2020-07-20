@@ -12,9 +12,18 @@ block content
             span(class="input-group-text") Name
           input(type="text", class="form-control", name="q", value=queryInput)
           button(class="btn btn-outline-secondary") Search
-  ul
-    each user in users
-      li(class="mb-2")
-        span= user.name 
-        span &nbsp
-        a(href="/users/" + user.id, class="btn btn-outline-success btn-sm") Infor
+  table.table
+    thead
+      tr
+        th ID
+        th Name
+        th Phone
+        th Actions
+    tbody
+        each user in users
+          tr
+            td= user.id
+            td= user.name
+            td= user.phone
+            td
+              a(href="/users/" + user.id, class="btn btn-outline-success btn-sm") Infor

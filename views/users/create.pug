@@ -4,9 +4,17 @@ block content
 
   h1 Create a user
   form(action="/users/create", method="POST")
-    .form-group.mt-4
+    .form-group.mt-5
       .input-group
         .input-group-prepend
-          span(class="input-group-text") Name
-        input(type="text", class="form-control", name="name")
-        button(class="btn btn-outline-secondary") Create
+          span(class="input-group-text", style= "min-width: 100px") Name
+        input(type="text", class="form-control", name="name", style= "max-width: 600px", value= values ? values.name : "")
+    .form-group.mt-2
+      .input-group
+        .input-group-prepend
+          span(class="input-group-text", style= "min-width: 100px") Phone
+        input(type="text", class="form-control", name="phone", style= "max-width: 600px", value= values ? values.phone : "")
+    if(errors)
+      each error in errors
+        .alert.alert-danger(style="max-width: 25%")= error
+    button(class="btn btn-outline-secondary").mt-4 Create
