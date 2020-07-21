@@ -1,0 +1,30 @@
+const db = require("../db.js");
+const router = require("../routes/user.route.js");
+
+module.exports.login = (req, res) => {
+  res.render("auth/login");
+};
+
+module.exports.postLogin = (req, res) => {
+  let email = req.body.email;
+  let password = req.body.password;
+
+  let user = db.get("users").find({ email: email }).value();
+  if (!user) {
+    res.render("auth/login", {
+      errors: ["User does not exist!!!"],
+      values: req.body,
+    });
+    return;
+  }
+
+  if (user.password !== password) {
+    res.render("auth/login", {
+      errors: ["Password is not correct!!!"],
+      values: req.body,
+    });
+    return;
+  }
+
+  res.redirect("/users");
+};

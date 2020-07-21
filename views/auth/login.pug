@@ -1,0 +1,20 @@
+extends ../layouts/common.pug
+
+block content
+
+  h1 Login
+  form(action="/users/login", method="POST")
+    .form-group.mt-5
+      .input-group
+        .input-group-prepend
+          span(class="input-group-text", style= "min-width: 100px") Email
+        input(type="email", class="form-control", name="email", style= "max-width: 600px", value= values ? values.email : "")
+    .form-group.mt-2
+      .input-group
+        .input-group-prepend
+          span(class="input-group-text", style= "min-width: 100px") Password
+        input(type="password", class="form-control", name="password", style= "max-width: 600px", value= values ? values.password : "")
+    if(errors)
+      each error in errors
+        .alert.alert-danger(style="max-width: 25%")= error
+    button(class="btn btn-outline-secondary").mt-4 Login

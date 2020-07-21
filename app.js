@@ -1,16 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const coockieParser = require("cookie-parser");
 
 const app = express();
 const port = 3000;
 
 let userRoute = require("./routes/user.route.js");
+let authRoute = require("./routes/auth.route.js");
 
 app.set("views", "./views");
 app.set("view engine", "pug");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(coockieParser());
 
 app.get("/", (req, res) =>
   res.render("index.pug", {
@@ -19,6 +22,7 @@ app.get("/", (req, res) =>
   })
 );
 
+app.use("/users", authRoute);
 app.use("/users", userRoute);
 
 app.listen(port, () =>
