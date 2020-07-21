@@ -2,7 +2,6 @@ const db = require("../db.js");
 const shortid = require("shortid");
 
 module.exports.index = (req, res) => {
-  console.log(req.cookies);
   res.render("users/index.pug", { users: db.get("users").value() });
 };
 

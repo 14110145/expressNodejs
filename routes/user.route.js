@@ -11,11 +11,6 @@ router.get("/create", controller.create);
 
 router.post("/create", validate.postCreate, controller.postCreate);
 
-router.get("/coockie", function (req, res, next) {
-  res.cookie("user-id", 565656);
-  res.send("Set coockie done!!!");
-});
-
 router.get("/:id", controller.get);
 
 module.exports = router;

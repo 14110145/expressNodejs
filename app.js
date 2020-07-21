@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const coockieParser = require("cookie-parser");
+const authMiddleware = require("./middlewares/auth.middleware");
 
 const app = express();
 const port = 3000;
@@ -22,8 +23,8 @@ app.get("/", (req, res) =>
   })
 );
 
-app.use("/users", authRoute);
-app.use("/users", userRoute);
+app.use("/users", authMiddleware.authLogin, userRoute);
+app.use("/auth", authRoute);
 
 app.listen(port, () =>
   console.log(`Example listening at http://localhost:${port}`)

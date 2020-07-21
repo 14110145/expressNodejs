@@ -1,31 +1,11 @@
 {
   "users": [
     {
-      "name": "Lam-TP",
-      "phone": "0777707312",
-      "id": "tann_6Vmw",
+      "name": "lamtp@gmail.com",
+      "phone": "0779988111",
+      "id": "nrI3e5VrI",
       "email": "lamtp@gmail.com",
       "password": "123456"
-    },
-    {
-      "name": "asd",
-      "phone": "asd",
-      "id": "LPHWBNQng"
-    },
-    {
-      "name": "asd",
-      "phone": "asd",
-      "id": "L6JmYJTfG"
-    },
-    {
-      "name": "asd",
-      "phone": "asd",
-      "id": "wSdrQv1Cr"
-    },
-    {
-      "name": "Toan-LTP",
-      "phone": "0779988111",
-      "id": "T7QBdRCX-"
     }
   ]
 }
