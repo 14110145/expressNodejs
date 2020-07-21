@@ -17,5 +17,7 @@ html
             a.nav-link(href='#') Features
           li.nav-item
             a.nav-link(href='#') Pricing
+      if(user)
+        p(style= "color: white")= user.name
     .container
       block content
