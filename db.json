@@ -616,5 +616,16 @@
       "image": "https://loremflickr.com/320/240",
       "description": "leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit"
     }
+  ],
+  "sessions": [
+    {
+      "id": "yxScQ_N95",
+      "cart": {
+        "44bcae49-83b3-4a22-b89e-9b14277e80b7": 2,
+        "c594f8d8-98b9-4c05-b5b3-2dd99ca6ecaa": 1,
+        "4ae7d057-c549-49e2-8b57-46880e382f16": 2,
+        "ce55ac5b-7805-4705-b05d-f774d35cd1cc": 1
+      }
+    }
   ]
 }
