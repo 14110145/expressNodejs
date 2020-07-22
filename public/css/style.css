@@ -1,0 +1,16 @@
+.my-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px 10px;
+  justify-content: space-between;
+}
+
+.card-body.my-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body.my-card-body .my-button {
+  align-self: flex-start;
+}
