@@ -12,7 +12,7 @@ let userRoute = require("./routes/user.route.js");
 let authRoute = require("./routes/auth.route.js");
 let productRoute = require("./routes/product.route.js");
 
-app.use('/public', express.static('public'));
+app.use("/public", express.static("public"));
 app.set("views", "./views");
 app.set("view engine", "pug");
 

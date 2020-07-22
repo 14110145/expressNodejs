@@ -14,8 +14,8 @@ block content
           a.btn.btn-primary.my-button(href='#') Add to cart
   nav(aria-label='Page navigation example').mt-4
     ul.pagination.justify-content-center
-      li.page-item#Previous
-        a.page-link(href='?page=' + (pages? parseInt(pages ? 1 : pages - 1) : parseInt(1))) Previous
+      li.page-item
+        a.page-link.Previous(href='?page=' + (pages? parseInt(pages - 1) : parseInt(1))) Previous
       li.page-item
         a.page-link(href='?page=' + parseInt(pages))= pages
       li.page-item
@@ -24,3 +24,4 @@ block content
         a.page-link(href='?page=' + parseInt(pages + 2))= pages + 2
       li.page-item
         a.page-link(href='?page=' + parseInt(pages + 1)) Next
+  

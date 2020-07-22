@@ -2,10 +2,17 @@
   "users": [
     {
       "name": "lamtp@gmail.com",
-      "phone": "0779988111",
-      "id": "nrI3e5VrI",
+      "phone": "077887789",
+      "id": "W8MRLrUal",
+      "avatar": "public/uploads/cd0c8c87ef2536791d17e21e8a55959c",
       "email": "lamtp@gmail.com",
       "password": "e10adc3949ba59abbe56e057f20f883e"
+    },
+    {
+      "name": "phutl@gmail.com",
+      "phone": "0123456789",
+      "id": "rggTxuS68",
+      "avatar": "public/uploads/a6c31a9c3a7a4b3198b7bb030a538c64"
     }
   ],
   "products": [

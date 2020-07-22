@@ -3,7 +3,7 @@ extends ../layouts/common.pug
 block content
 
   h1 Create a user
-  form(action="/users/create", method="POST")
+  form(action="/users/create", method="POST", enctype= "multipart/form-data")
     .form-group.mt-5
       .input-group
         .input-group-prepend
@@ -14,6 +14,9 @@ block content
         .input-group-prepend
           span(class="input-group-text", style= "min-width: 100px") Phone
         input(type="text", class="form-control", name="phone", style= "max-width: 600px", value= values ? values.phone : "")
+    .form-group.mt-2
+      .input-group
+        input(type="file", class="form-control-file", name="avatar", style= "max-width: 300px")
     if(errors)
       each error in errors
         .alert.alert-danger(style="max-width: 25%")= error
