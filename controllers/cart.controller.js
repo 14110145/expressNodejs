@@ -19,11 +19,5 @@ module.exports.addToCart = (req, res) => {
     .set("cart." + productId, count + 1)
     .write();
 
-  let data = db.get("sessions").find({ id: sessionId }).value();
-
-  let total = Object.values(data.cart).reduce((prev, curr) => prev + curr, 0);
-
-  res.locals.total = total;
-
   res.redirect("/products");
 };

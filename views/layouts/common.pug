@@ -15,9 +15,11 @@ html
             a.nav-link(href='/users') Users
               span.sr-only (current)
           li.nav-item
+            a.nav-link(href='/transfer/create') Transfer
+          li.nav-item
             a.nav-link(href='/products') Products
           li.nav-item
-            p(style= "color: white")= total
+            a.nav-link(href='#', style= "color: white")= total
       if(user)
         p(style= "color: white")= user.name
     .container
