@@ -17,7 +17,7 @@ html
           li.nav-item
             a.nav-link(href='/products') Products
           li.nav-item
-            a.nav-link(href='#') Cart
+            p(style= "color: white")= total
       if(user)
         p(style= "color: white")= user.name
     .container
