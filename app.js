@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const coockieParser = require("cookie-parser");
-const csrfToken = require("csurf");
+const csrf = require("csurf");
 
 const authMiddleware = require("./middlewares/auth.middleware.js");
 const sessionMiddleware = require("./middlewares/session.middleware.js");
@@ -24,7 +24,6 @@ app.set("view engine", "pug");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(coockieParser(process.env.SESSION_SECRET));
-
 app.use(sessionMiddleware);
 
 app.get("/", (req, res) =>
@@ -38,12 +37,11 @@ app.use("/auth", authRoute);
 app.use(
   "/transfer",
   authMiddleware.authLogin,
-  csrfToken({ cookie: true }),
+  csrf({ cookie: true }),
   transferRoute
 );
 app.use("/products", cartSessionMiddleware, productRoute);
 app.use("/cart", cartRoute);
-app.use(csrfToken({ cookie: true }));
 
 app.listen(port, () =>
   console.log(`Example listening at http://localhost:${port}`)

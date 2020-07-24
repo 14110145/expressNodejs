@@ -1,11 +1,12 @@
 const db = require("../db.js");
 const shortId = require("shortId");
 
-module.exports.create = (req, res) => {
+module.exports.create = (req, res, next) => {
+  console.log("csruf: " + req.csrfToken());
   res.render("transfer/index.pug", { csrfToken: req.csrfToken() });
 };
 
-module.exports.postCreate = (req, res) => {
+module.exports.postCreate = (req, res, next) => {
   let data = {
     id: shortId.generate(),
     amount: parseInt(req.body.amount),

@@ -3,8 +3,8 @@ extends ../layouts/common.pug
 block content
 
   h1 Transfer Money
-  form("method="POST")
-    .input(type="hidden", name="_csrf", value= "csrfToken")
+  form(method="POST")
+    input(type="hidden", name="_csrf", value= csrfToken)
     .form-group.mt-5
       .input-group
         .input-group-prepend
