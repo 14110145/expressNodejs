@@ -1,22 +1,23 @@
 require("dotenv").config();
 
 const express = require("express");
+const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const coockieParser = require("cookie-parser");
 const csrf = require("csurf");
 
-const authMiddleware = require("./middlewares/auth.middleware.js");
-const sessionMiddleware = require("./middlewares/session.middleware.js");
-const cartSessionMiddleware = require("./middlewares/cartSession.middleware.js");
-
 const app = express();
 const port = 3000;
+mongoose.connect(process.env.MONGO_URL);
 
 let userRoute = require("./routes/user.route.js");
 let authRoute = require("./routes/auth.route.js");
 let productRoute = require("./routes/product.route.js");
 let cartRoute = require("./routes/cart.route.js");
 let transferRoute = require("./routes/transfer.route.js");
+const authMiddleware = require("./middlewares/auth.middleware.js");
+const sessionMiddleware = require("./middlewares/session.middleware.js");
+const cartSessionMiddleware = require("./middlewares/cartSession.middleware.js");
 
 app.use("/public", express.static("public"));
 app.set("views", "./views");
