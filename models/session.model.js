@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
 
-let userSchema = new mongoose.Schema({
-  amount: Number,
-  accountId: String,
-  userId: String,
-});
+let sessionSchema = new mongoose.Schema({
+  cart: { type: mongoose.Schema.Types.Mixed, default: {} },
+}, { minimize: false });
 
-let Session = mongoose.model("Session", userSchema, "sessions");
+let Session = mongoose.model("Session", sessionSchema, "sessions");
 
 module.exports = Session;

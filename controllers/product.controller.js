@@ -12,10 +12,13 @@ const Product = require("../models/product.model");
 //   });
 // };
 
-module.exports.index = function (req, res) {
-  Product.find().then(function (products) {
-    res.render("products/index.pug", {
-      products: products,
-    });
+module.exports.index = async (req, res) => {
+  let page = parseInt(req.query.page) > 0 ? req.query.page : 0;
+  let products = await Product.find()
+    .limit(6)
+    .skip(page * 6);
+  res.render("products/index.pug", {
+    products: products,
+    pages: parseInt(page),
   });
 };

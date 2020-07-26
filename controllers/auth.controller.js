@@ -6,13 +6,13 @@ module.exports.login = (req, res) => {
   res.render("auth/login.pug");
 };
 
-module.exports.postLogin = (req, res) => {
+module.exports.postLogin = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
   let md5Password = md5(password);
 
   // let user = db.get("users").find({ email: email }).value();
-  User.findOne({ email: email }).then(function (user) {
+  await User.findOne({ email: email }).then(function (user) {
     if (!user) {
       res.render("auth/login.pug", {
         errors: ["User does not exist!!!"],

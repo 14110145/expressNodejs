@@ -1,6 +1,6 @@
 // const db = require("../db.js");
 // const shortId = require("shortId");
-const Session = require("../models/session.model");
+const Transfer = require("../models/transfer.model");
 
 module.exports.create = (req, res, next) => {
   res.render("transfer/index.pug", { csrfToken: req.csrfToken() });
@@ -14,6 +14,6 @@ module.exports.postCreate = (req, res, next) => {
     userId: req.signedCookies.userId,
   };
   // db.get("transfer").push(data).write();
-  Session.insertMany(data);
+  Transfer.insertMany(data);
   res.redirect("/transfer/create");
 };

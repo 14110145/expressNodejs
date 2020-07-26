@@ -15,7 +15,7 @@ block content
   nav(aria-label='Page navigation example').mt-4
     ul.pagination.justify-content-center
       li.page-item
-        a.page-link.Previous(href='?page=' + (pages? parseInt(pages - 1) : parseInt(1))) Previous
+        a.page-link.Previous(href='?page=' + (pages? parseInt(pages - 1) : 0)) Previous
       li.page-item
         a.page-link(href='?page=' + parseInt(pages))= pages
       li.page-item
